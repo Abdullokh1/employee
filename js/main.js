@@ -12,6 +12,7 @@ const DepartInput2 = document.getElementById('DepartInput2');
 const secondForm = document.querySelector('.form-second')
 const searchInput = document.getElementById('SearchInput');
 const cardInput = document.querySelector('.cards__input')
+const talbeHead = document.querySelectorAll('.table__head');
 
 let arr = [];
 
@@ -47,10 +48,10 @@ function show(arr) {
     let tr = document.createElement('tr');
     tr.className = 'border'
     tr.innerHTML = `
-      <td class='table-data'>${item.name}</td>
-      <td class='table-data'>${item.email}</td>
-      <td class='table-data'>${item.number}</td>
-      <td class='table-data'>${item.depart}</td>
+      <td>${item.name}</td>
+      <td>${item.email}</td>
+      <td>${item.number}</td>
+      <td>${item.depart}</td>
       <td>
         <div class="d-flex edit-wrapper">
           <button class="me-2 edit-btn" onclick = "editIt(${item.id})" data-bs-toggle="modal" data-bs-target="#exampleModal2"><i class='bx  bx-edit-alt'></i></button>
@@ -58,7 +59,6 @@ function show(arr) {
         </div>
       </td>
     `;
-
 
     output.appendChild(tr);
 
@@ -140,4 +140,6 @@ searchInput.addEventListener('keydown', ()=>{
 searchInput.addEventListener('blur', ()=>{
   cardInput.style.outline = '1px solid #c4c4c4';
 })
+
+
 
