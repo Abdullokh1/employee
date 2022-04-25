@@ -83,14 +83,17 @@
                     </div>
                     <div class="modal-body">
                       <div>
-                        <form class="d-flex form">
+                        <form action="#" class="d-flex form">
                           <div class="left-modal">
                             <div class="inputs-wrapper">
 
-                              <input class="modal__input" type="text" name="Fullname" placeholder="Full Name"
+                              <input class="modal__input mt-1" type="text" name="Fullname" placeholder="Full Name"
                                 id="NameInput" required>
+                                <p class="m-0 name-warning p-0 mb-4"></p>
                               <input class="modal__input" type="text" name="Email" placeholder="Email" id="EmailInput"
                                 required>
+                                <p class="m-0 name-warning email-warning p-0 mb-4"></p>
+
                               <input class="modal__input" type="number" name="Mobile" placeholder="Mobile"
                                 id="MobileInput" required>
                             </div>
@@ -115,7 +118,7 @@
                               </div>
                             </div>
 
-                            <input list="data" class="modal__input" placeholder="Departure" id="DepartInput" required>
+                            <input list="data" class="modal__input mb-4" placeholder="Departure" id="DepartInput" required>
                             <datalist id="data">
                               <option value="Development">
                               <option value="Marketing">
@@ -123,10 +126,11 @@
                               <option value="Hr">
                             </datalist>
 
-                            <input type="date" class="modal__input">
+                            <input type="date" class="modal__input mb-4">
 
                             <div>
-                              <button type="submit" class="btn submit-btn me-2">Submit</button>
+                              <button type="submit" class="btn submit-btn me-2" data-bs-dismiss="modal"
+                                aria-label="Close">Submit</button>
                               <button type="submit" class="btn reset-btn">Reset</button>
                             </div>
                           </div>
@@ -143,17 +147,43 @@
             <table class="table list-unstyled mt-4">
               <thead>
                 <tr>
-                  <th class="table__head"><button class="table__button">Employee Name</button> </th>
-                  <th class="table__head"><button class="table__button"> Email Address (Personal)</button></th>
-                  <th class="table__head"><button class="table__button">Mobile Number</button> </th>
-                  <th class="table__head"><button class="table__button">Department</button> </th>
-                  <th class="table__head"><button class="table__button">Actions</button> </th>
+
+                  <th class="table__head">
+                    <button class="table__button">
+                      Employee Name <i class='bx up-icon bx-up-arrow-alt'></i>
+                    </button> 
+                  </th>
+
+                  <th class="table__head">
+                    <button class="table__button">
+                      Email Address(Personal) <i class='bx up-icon bx-up-arrow-alt'></i>
+                    </button> 
+                  </th>
+
+                  <th class="table__head">
+                    <button class="table__button">
+                      Mobile Number <i class='bx up-icon bx-up-arrow-alt'></i>
+                    </button> 
+                  </th>
+
+                  <th class="table__head">
+                    <button class="table__button">
+                      Department <i class='bx up-icon bx-up-arrow-alt'></i>
+                    </button> 
+                  </th>
+
+                  <th class="table__head">
+                    <button class="table__button">
+                      Action <i class='bx up-icon bx-up-arrow-alt'></i>
+                    </button> 
+                  </th>
+
+                  
                 </tr>
               </thead>
               <tbody class="table__output">
               </tbody>
             </table>
-
 
             <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2"
               aria-hidden="true">
@@ -165,12 +195,12 @@
                   </div>
                   <div class="modal-body">
                     <div>
-                      <form class="d-flex form-second">
+                      <form action="#" class="d-flex form-second">
                         <div class="left-modal">
                           <div class="inputs-wrapper">
-                            <input class="modal__input" type="text" name="Fullname" placeholder="Full Name"
+                            <input class="modal__input mb-4" type="text" name="Fullname" placeholder="Full Name"
                               id="NameInput2" required>
-                            <input class="modal__input" type="text" name="Email" placeholder="Email" id="EmailInput2"
+                            <input class="modal__input mb-4" type="text" name="Email" placeholder="Email" id="EmailInput2"
                               required>
                             <input class="modal__input" type="number" name="Mobile" placeholder="Mobile"
                               id="MobileInput2" required>
@@ -196,7 +226,7 @@
                             </div>
                           </div>
 
-                          <input list="data" class="modal__input" placeholder="Departure" id="DepartInput2" required>
+                          <input list="data" class="modal__input mb-4" placeholder="Departure" id="DepartInput2" required>
                           <datalist id="data">
                             <option value="Development">
                             <option value="Marketing">
@@ -204,9 +234,10 @@
                             <option value="Hr">
                           </datalist>
 
-                          <input type="date" class="modal__input">
+                          <input type="date" class="modal__input mb-4">
                           <div>
-                            <button type="submit" class="btn submit-btn me-2">Submit</button>
+                            <button type="submit" class="btn submit-btn me-2 p-2" data-bs-dismiss="modal"
+                              aria-label="Close">Submit</button>
                             <button type="submit" class="btn reset-btn">Reset</button>
                           </div>
                         </div>

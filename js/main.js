@@ -13,8 +13,13 @@ const secondForm = document.querySelector('.form-second')
 const searchInput = document.getElementById('SearchInput');
 const cardInput = document.querySelector('.cards__input')
 const talbeHead = document.querySelectorAll('.table__head');
+const tableBtn = document.querySelectorAll('.table__button');
+const upIcon = document.querySelectorAll('.up-icon');
+const nameWarning = document.querySelector('.name-warning');
+const emailWarn = document.querySelector('.email-warning')
+let arr = [
 
-let arr = [];
+];
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -79,27 +84,34 @@ function remove(id){
 
 function editIt(id) {
   arr.forEach((item, index) => {
-    if (id === index) {
+    if (index === id) {
       NameInput2.value = item.name
       EmailInput2.value = item.email
       MobileInput2.value = item.number; 
       DepartInput2.value = item.depart;
 
-      editValue(id);
+      editValue(index);
     }
   })
 }
 
-  function editValue(id){
+  function editValue(index){
+    let count = 0;
     secondForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      if(count == 0){
 
-      arr[id].name = NameInput2.value;
-      arr[id].email = EmailInput2.value;
-      arr[id].number = MobileInput2.value;
-      arr[id].depart = DepartInput2.value;
+        arr[index].name = NameInput2.value;
+        arr[index].email = EmailInput2.value;
+        arr[index].number = MobileInput2.value;
+        arr[index].depart = DepartInput2.value;
 
-      show(arr);
+        show(arr);
+
+        count++;
+      }
+
+
     })
   }
 
@@ -141,5 +153,122 @@ searchInput.addEventListener('blur', ()=>{
   cardInput.style.outline = '1px solid #c4c4c4';
 })
 
+let count = 0;
+tableBtn.forEach(el =>{
+  el.addEventListener('click', ()=>{
+    arr.sort((a,b) =>{
+      if(a.name > b.name){
+        return 1
+      }
+      if(a.name < b.name){
+        return -1
+      }
+      return 0
+    } )
+
+    count++;
+
+    if(count % 2 == 0){
+      arr.sort((a,b) =>{
+        if(a.name < b.name){
+          return 1
+        }
+        if(a.name > b.name){
+          return -1
+        }
+        return 0
+      })
+
+      show(arr)
+    }
+  show(arr)
+
+  })
+  show(arr)
+})
 
 
+let count2 = 0
+upIcon.forEach(item =>{
+  item.addEventListener('click', ()=>{
+    item.style.transform = 'rotate(180deg)'
+    count2++;
+
+    if(count2 % 2 == 0){
+    item.style.transform = 'rotate(0)'
+    }
+  })
+})
+
+
+
+
+NameInput.addEventListener('keyup', ()=>{
+  
+  let nameValue = NameInput.value;
+  nameValue.trim();
+
+  try{
+    if (nameValue == ''){
+      NameInput.style.border = '2px solid #ee0004';
+      nameWarning.style.opacity = '1';
+      throw 'Name required'
+    }
+    if (NameInput.value.match(/[0-9]/) != null || NameInput.value.match(/[!@#$%^&*()_+]/) != null){
+      NameInput.style.border = '2px solid #ee0004';
+      nameWarning.style.opacity = '1';
+      throw 'Enter string! '
+    } 
+    else{
+      NameInput.style.border = '2px solid #543FD3';
+      nameWarning.innerText = '';
+    }
+  }
+  catch (e){
+    nameWarning.innerText = e;
+  }
+})
+
+EmailInput.addEventListener('keyup', ()=>{
+  let email = EmailInput.value;
+
+  try{
+    if (email == '') {
+      EmailInput.style.border = '2px solid #ee0004';
+      emailWarn.style.opacity = '1';
+      throw 'Email required'
+    } 
+    else{
+      EmailInput.style.border = '2px solid #543FD3';
+      emailWarn.innerText = '';
+    }
+    if (EmailInput.value.includes('@')){
+      EmailInput.style.border = '2px solid #543FD3';
+    }
+    if (!EmailInput.value.includes('@')){
+      EmailInput.style.border = '2px solid #ee0004';
+      emailWarn.style.opacity = '1';
+      throw 'Use @'
+    }
+    else{
+      EmailInput.style.border = '2px solid #543FD3';
+    }
+  }
+  catch(e){
+    emailWarn.innerText = e;
+  }
+})
+
+
+
+NameInput.addEventListener('blur', ()=>{
+  NameInput.style.border = '1px solid rgba(102, 102, 102, 0.599)';
+  nameWarning.innerText = '';
+
+})
+
+EmailInput.addEventListener('blur', ()=>{
+  EmailInput.style.border = '1px solid rgba(102, 102, 102, 0.599)';
+  emailWarn.innerText = '';
+
+})

@@ -75,8 +75,8 @@ body {
 .cards__inner{
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-
   border-radius: 4px;
+  padding-bottom: 50px !important;
 }
 
 .cards__input{
@@ -147,7 +147,8 @@ body {
 .table__button{
   color: #333996;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 700;
+  transition: all 0.4s ease;
 }
 
 .table__btns{
@@ -174,7 +175,6 @@ body {
   padding: 13px 16px;
   width: 350px;
   background-color: transparent;
-  margin-bottom: 20px;
 }
 
 .modal__input:focus{
@@ -210,6 +210,7 @@ tr th{
 tr td{
   background-color: #fff !important;
   padding: 15px !important;
+  font-weight: 300;
 }
 
 .border{
@@ -245,7 +246,24 @@ tr td{
 td{
   cursor: pointer;
 }
-
 .edit-wrapper{
   padding: 0 0 !important;
+}
+.up-icon{
+  font-size: 18px;
+  position: relative;
+  top: 4px;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+.table__button:hover .up-icon{
+  opacity: 1;
+  color: #333a9690;
+}
+.table__button:hover{
+  color: #333a9690;
+}
+.name-warning{
+  color: rgb(236, 69, 69);
+  font-size: 12px;
 }
